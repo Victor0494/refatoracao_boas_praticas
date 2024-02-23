@@ -11,7 +11,6 @@ public class WaitingForValidationPet implements RequestAdoptValidation {
 
     private final AdocaoRepository repository;
 
-
     public WaitingForValidationPet(AdocaoRepository repository) {
         this.repository = repository;
     }

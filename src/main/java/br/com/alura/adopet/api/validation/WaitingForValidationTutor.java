@@ -11,7 +11,6 @@ public class WaitingForValidationTutor implements RequestAdoptValidation {
 
     private final AdocaoRepository repository;
 
-
     public WaitingForValidationTutor(AdocaoRepository repository) {
         this.repository = repository;
     }

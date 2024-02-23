@@ -21,7 +21,6 @@ public class TutorController {
     }
 
     @PostMapping
-    @Transactional
     public ResponseEntity<String> cadastrar(@RequestBody @Valid TutorDTO tutorDTO) {
         try{
             tutorService.cadastrarTutor(tutorDTO);
@@ -32,7 +31,6 @@ public class TutorController {
     }
 
     @PutMapping
-    @Transactional
     public ResponseEntity<String> atualizar(@RequestBody @Valid AtualizacaoTutorDTO atualizacaoTutorDTO) {
         tutorService.atualizarTutor(atualizacaoTutorDTO);
         return ResponseEntity.ok().build();

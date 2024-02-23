@@ -7,7 +7,6 @@ import br.com.alura.adopet.api.exception.ValidacaoException;
 import br.com.alura.adopet.api.service.AdocaoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +20,6 @@ public class AdocaoController {
     }
 
     @PostMapping
-    @Transactional
     public ResponseEntity<String> solicitar(@RequestBody @Valid SolicitacaoAdocaoDTO solicitacaoAdocaoDTO) {
         try {
             adocaoService.solicitar(solicitacaoAdocaoDTO);
@@ -32,14 +30,12 @@ public class AdocaoController {
     }
 
     @PutMapping("/aprovar")
-    @Transactional
     public ResponseEntity<String> aprovar(@RequestBody @Valid AprovacaoAdocaoDTO aprovacaoAdocaoDTO) {
         adocaoService.aprovar(aprovacaoAdocaoDTO);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/reprovar")
-    @Transactional
     public ResponseEntity<String> reprovar(@RequestBody @Valid ReprovacaoAdocaoDTO reprovacaoAdocaoDTO) {
         try {
             adocaoService.reprovar(reprovacaoAdocaoDTO);

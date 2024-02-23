@@ -8,7 +8,6 @@ import br.com.alura.adopet.api.service.AbrigoServiceImpl;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class AbrigoController {
     }
 
     @PostMapping("/{idOuNome}/pets")
-    @Transactional
     public ResponseEntity<String> cadastrarPet(@PathVariable String idOuNome, @RequestBody @Valid PetDTO petDTO) {
         try {
             abrigoService.cadastrarPet(idOuNome, petDTO);
